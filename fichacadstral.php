@@ -57,7 +57,7 @@
             <p>Idade: <strong><?= $idade ?></strong></p>
             <p>Sexo: <strong><?= $sexo ?></strong></p>
             <p>Salário Mensal: <strong><?= numerosBrasileiros($salario)?></strong></p>
-            <p>Salário Anual: <strong><?= salarioFromat($salario,true)?></strong></p>
+            <p>Salário Anual: <strong><?= salarioAnual($salario)?></strong></p>
             <p>Status de Emprego: <strong><?= $empregado ?></strong></p>
             <p>Anos para A aposentadoria<strong> <?=anosParaAposentadoria(15, $sexo = true)?></strong></p>
             <p>Habilidades: <strong><?= $habilidade ?></strong></p>
