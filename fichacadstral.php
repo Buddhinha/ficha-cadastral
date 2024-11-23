@@ -56,10 +56,10 @@
             <p>Nome: <strong><?= $nome ?></strong></p>
             <p>Idade: <strong><?= $idade ?></strong></p>
             <p>Sexo: <strong><?= $sexo ?></strong></p>
-            <p>Salário Mensal: <strong><?= formatarNumeros($salario)?></strong></p>
-            <p>Salário Anual: <strong><?= formatarNumeros($salario,true)?></strong></p>
+            <p>Salário Mensal: <strong><?= numerosBrasileiros($salario)?></strong></p>
+            <p>Salário Anual: <strong><?= salarioFromat($salario,true)?></strong></p>
             <p>Status de Emprego: <strong><?= $empregado ?></strong></p>
-            <p>Anos para A aposentadoria<strong> <?= $anos_restantes_para_aposentar ?></strong></p>
+            <p>Anos para A aposentadoria<strong> <?=anosParaAposentadoria(15, $sexo = true)?></strong></p>
             <p>Habilidades: <strong><?= $habilidade ?></strong></p>
         </div>
     </div>
