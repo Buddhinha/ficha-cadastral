@@ -1,74 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando Variáveis em PHP</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        strong {
+            color: #000;
+        }
+    </style>
+</head>
 <?php 
-require"info.php";
-//if else simplificado
-$empregado = $empregado == true ? "empregado" : "não empregado";
+    require"info.php";
+    require"calc.php";
+?>
 
-/*
-// if else não simplificado
-if ($empregado == true) {
-    $empregado = "Empregado";
-} else {
-    $empregado = "desempregado";
-}
-*/
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Ficha Cadastral</h1>
+            <p>Nome: <strong><?= $nome ?></strong></p>
+            <p>Idade: <strong><?= $idade ?></strong></p>
+            <p>Sexo: <strong><?= $sexo ?></strong></p>
+            <p>Salário Mensal: <strong><?= numerosBrasileiros($salario)?></strong></p>
+            <p>Salário Anual: <strong><?= salarioAnual($salario)?></strong></p>
+            <p>Status de Emprego: <strong><?= $empregado ?></strong></p>
+            <p>Anos para A aposentadoria<strong> <?=anosParaAposentadoria(15, $sexo = true)?></strong></p>
+            <p>Habilidades: <strong><?= $habilidade ?></strong></p>
+        </div>
+    </div>
+</body>
 
-//$aposentadoria = 40;
-//define("DATA_DE_APOSENTADORIA_MULHER", 62);
-//define("DATA_DE_APOSENTADORIA_HOMEM", 65);
-$minecraft = "minecraft";
-//logica da aposentadoria
-/**
- * @param int $idade idade do cidadão
- * @param bool true para masculo e false para mulher
- * @return int retorna os anos até a aposentadoria
- */
-function anosParaAposentadoria($idade,$sexo = true){
-    $anosParaAposentarMasculino = 65;
-    $anosParaAposentarFeminino  = 62;
- 
-    $anosTotaisParaAposentar = $sexo == true ? $anosParaAposentarMasculino - $idade : $anosParaAposentarFeminino - $idade;
-
-    return $anosTotaisParaAposentar;
-
-}
-
-$aposentadoria =  anosParaAposentadoria(38,true);
-
-//var_dump($aposentadoria);
-
-
-
-
-//$anos_restantes_para_aposentar = $sexo == "M" ? DATA_DE_APOSENTADORIA_HOMEM - $idade : DATA_DE_APOSENTADORIA_MULHER - $idade;
-
-
-
-$habilidades = ["php", "javascript", "html", "css"];
-$habilidade = implode(",", $habilidades);
-
-/**
- * formata os numero no de salario
- * se desejar o salario anual
- * esabeleça o segundo parametro como true
- * @param int o numero que será formatado
- * @param string se quiser a versão anual do numero preencha o segundo parametro como true
- * @return string
- */ 
-function salarioFromat ($numero, $anual=false){
-    //$numeroFormatado = number_format($numero, 2,",",".");
-    
-    if ($anual == true) {
-        $valorAnual = $numero*12;
-        $numeroFormatado = number_format($valorAnual, 2,",",".");
-        return "R$".$numeroFormatado;
-    } else {
-        $numeroFormatado = number_format($numero, 2,",",".");
-        return "R$$numeroFormatado";
-    }
-
-}
-
-function numerosBrasileiros($numero){
-    $numero = number_format($numero, 2,",",".");
-    return $numero;
-}
+</html>
